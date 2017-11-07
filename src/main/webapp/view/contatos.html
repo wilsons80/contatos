@@ -1,0 +1,64 @@
+<meta charset="utf-8">
+
+	<div class="jumbotron">
+	
+		<ui-accordions>
+			<ui-accordion title="Accordion 1">
+				Accordion 1
+			</ui-accordion>
+			<ui-accordion title="Accordion 2">
+				Accordion 2
+			</ui-accordion>
+			<ui-accordion title="Accordion 3">
+				Accordion 3
+			</ui-accordion>
+			<ui-accordion title="Accordion 4">
+				Accordion 4
+			</ui-accordion>
+			<ui-accordion title="Accordion 5">
+				Accordion 5
+			</ui-accordion>
+		</ui-accordions>
+	
+		{{app}}	<br>
+		
+		<div ui-alert title="Ops, aconteceu um problema!" message="error"></div>
+
+     	<input type="text" ng-model="criterioDeBusca"
+     	       ng-model-options="{updateOn: 'default blur', debounce: {default:500, blur: 0} }" 
+     	       class="form-control" placeholder="O que você está buscando ?">  
+
+        <!-- A diretiva ng-if NÃO renderiza o componente no html -->
+		<table class="table" ng-if="contatos.length > 0">
+			<th></th>	
+			<th><a href="" ng-click="ordenarPor('nome')">Nome</th>	
+			<th><a href="" ng-click="ordenarPor('telefone')">Telefone</th>
+			<th>Operadora</th>
+			<th>Preço</th>
+			<th>Data</th>
+            <th></th>
+            
+            <!-- Busca apenas em um campo específico -->
+            <!-- <tr ng-repeat="contato in contatos | filter: {nome: criterioDeBusca}" -->
+			<tr ng-repeat="contato in contatos | limitTo:15 | filter: criterioDeBusca | orderBy: criteriadeOrdenacao : direcaoDaOrdenacao" 
+			    ng-class="{'selecionado negrito' : contato.selecionado}">
+
+				<td><input type="checkbox" ng-model="contato.selecionado" ng-click="verificarContatoSelecionado(contatos)"/></td>
+				<td><a href="#/detalheContato/{{contato.id}}">{{contato.nome | name}}</a></td>
+				<td>{{contato.telefone}}</td>
+				<td>{{contato.operadora.codigo | lowercase}}</td>
+				<td>{{contato.operadora.precoComImposto | currency}}</td>
+				<td>{{contato.data}}</td>
+				<td><div style="width: 20px; height: 20px;" ng-style="{'background-color' : contato.cor }"></div></td>
+
+			</tr>
+		</table>
+		<button class="btn btn-danger btn-block"
+		        ng-click="apagarContatos(contatos)"
+		        ng-if="hasContatoSelecionado">Apagar Contatos</button>
+
+
+		<hr>
+		
+		<a href="#/novoContato" class="btn btn-primary btn-block">Novo Contato</a>	
+	</div>

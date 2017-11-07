@@ -1,0 +1,73 @@
+<html ng-app="lista">
+<head>
+	<title>Lista Telefônica</title>
+	<meta charset="utf-8">
+    <base href="/contatos/">
+    
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/ui.css">
+
+
+	<script type="text/javascript" src="js/lib/angular.js"></script>
+    <script type="text/javascript" src="js/lib/angular-route.js"></script>
+	<script type="text/javascript" src="js/lib/angular-messages.js"></script>
+	<script type="text/javascript" src="js/lib/angular-locale_pt-br.js"></script>
+    
+	<!-- Adicionando os módulos do AngularJS -->
+    <script type="text/javascript" src="js/ui.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    
+	
+	<!-- Adicionando os controllers do AngularJS -->
+    <script type="text/javascript" src="js/controllers/listaCtr.js"></script>
+    <script type="text/javascript" src="js/controllers/novoContatoController.js"></script>
+    <script type="text/javascript" src="js/controllers/detalheContatoController.js"></script>
+    
+    
+	<!-- Adicionando os serviços do AngularJS -->
+    <script type="text/javascript" src="js/service/contatosAPIService.js"></script>
+    <script type="text/javascript" src="js/service/operadorasAPIService.js"></script>
+
+    <script type="text/javascript" src="js/config/routeConfig.js"></script>
+    <script type="text/javascript" src="js/config/interceptorConfig.js"></script>
+
+    
+    <!-- Adicionando os arquivos de constantes -->
+    <script type="text/javascript" src="js/value/configValue.js"></script>
+    
+    
+    <!-- Adicionando os Filter do AngularJS -->
+    <script type="text/javascript" src="js/filters/nameFilter.js"></script>
+    <script type="text/javascript" src="js/filters/ellipsisName.js"></script>
+    <script type="text/javascript" src="js/filters/upperFilter.js"></script>
+    
+    
+
+	<!-- Adicionando as Diretivas-->
+	<script type="text/javascript" src="js/directives/uiAlertDirective.js"></script>
+	<script type="text/javascript" src="js/directives/uiDataDirective.js"></script>
+	
+	<!-- Adicionando os Interceptor-->
+	<script type="text/javascript" src="js/interceptors/timestampInterceptor.js"></script>
+	<script type="text/javascript" src="js/interceptors/errorInterceptor.js"></script>
+	<script type="text/javascript" src="js/interceptors/loadingInterceptor.js"></script>
+</head>
+
+
+<body >
+	<div class="jumbotron" ng-show="loading">
+		Carregando, por favor aguarde...
+	</div>
+	
+	
+	<div ng-hide="loading">
+	    <div ng-view></div>
+		<div ng-include="'footer.html'"></div>
+	</div>
+    
+
+</body>
+</html>
