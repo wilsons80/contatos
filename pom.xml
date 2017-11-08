@@ -21,7 +21,7 @@
 	
 
 		<!-- ======================================================================== -->
-		<!-- Inicio: Dependências necessárias para o framework SPRING -->
+		<!-- Inicio: Dependências necessárias para o framework SPRING                 -->
 		<!-- ======================================================================== -->
 		<dependency>
 			<groupId>org.springframework</groupId>
