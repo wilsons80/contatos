@@ -2,7 +2,6 @@ package br.mp.mpdft.contatos.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -30,7 +29,6 @@ public class ContatoService {
 	@GET
 	@Path("")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
 	public List<Contato> buscarTodosContatos(){
 		return buscarContatoCmd.buscarTodosContatos();
 	}
@@ -49,7 +47,6 @@ public class ContatoService {
 	@GET
 	@Path("/detalheContato/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
 	public Contato buscarContato(@PathParam("id") Integer id){
 		return buscarContatoCmd.buscarContato(id); 
 	}
@@ -57,7 +54,6 @@ public class ContatoService {
 	@POST
 	@Path("")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Transactional
 	public void addContato(Contato contato){
 		adicionarContatoCmd.addContatos(contato);
 	}

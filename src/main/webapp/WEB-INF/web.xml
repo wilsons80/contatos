@@ -12,8 +12,6 @@
 
 	<!-- =============================================================================================== -->
 	<!-- INICIO: Inicializa o contexto do SPRING através do RestEasy -->
-	<!-- Observação: Logo, não precisamos das configurações padrão mencionadas 
-		acima -->
 	<!-- =============================================================================================== -->
 	<listener>
 		<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>

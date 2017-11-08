@@ -8,14 +8,13 @@ angular.module("lista").config(function($routeProvider, $locationProvider) {
 	// Sem o # a tag href não funciona
     //$locationProvider.html5Mode(true);
 
-	// Se vier da página principal da aplicação.
+	// Se vier da página principal da aplicação '/contatos'.
 	$routeProvider.when('/', {
 		templateUrl : 'view/contatos.html',
 		controller : 'listaCtr',
 			
 		resolve : {
 			contatos: function (contatosAPI) {
-				console.log(contatosAPI.getContatos());
 				return contatosAPI.getContatos();
 			},
 			operadoras: function (operadorasAPI) {

@@ -59,12 +59,14 @@
 
 <body >
 	<div class="jumbotron" ng-show="loading">
-		Carregando, por favor aguarde um minuto...
+		Carregando, por favor aguarde um minuto ...
 	</div>
 	
 	
 	<div ng-hide="loading">
+	    <!-- A diretiva ng-view é responsável por renderizar a página que foi configurada pelo routeConfig.js -->
 	    <div ng-view></div>
+	    
 		<div ng-include="'footer.html'"></div>
 	</div>
     
