@@ -45,7 +45,7 @@
 			    ng-class="{'selecionado negrito' : contato.selecionado}">
 
 				<td><input type="checkbox" ng-model="contato.selecionado" ng-click="verificarContatoSelecionado(contatos)"/></td>
-				<td><a href="#/detalheContato/{{contato.id +1}}">{{contato.nome | name}}</a></td>
+				<td><a href="#/detalheContato/{{contato.id}}">{{contato.nome | name}}</a></td>
 				<td>{{contato.telefone}}</td>
 				<td>{{contato.operadora.codigo | lowercase}}</td>
 				<td>{{contato.operadora.precoComImposto | currency}}</td>
